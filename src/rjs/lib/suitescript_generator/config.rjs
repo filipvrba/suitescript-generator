@@ -1,0 +1,17 @@
+export default class Config
+  def initialize path = nil
+    set_path_env(path)
+    @config = require("config")
+
+    set_values
+  end
+
+  def set_path_env path
+    unless path { return nil }
+    process.env["NODE_CONFIG_DIR"] = path
+  end
+
+  def set_values
+    
+  end
+end

@@ -1,0 +1,25 @@
+{
+    "scriptPaths": {
+        "defaultPath": "./generatedScripts/",
+        "uePath": "./generatedScripts/",
+        "clPath": "./generatedScripts/",
+        "mrPath": "./generatedScripts/",
+        "slPath": "./generatedScripts/",
+        "wfaPath": "./generatedScripts/"
+    },
+    "userDetails": {
+        "defaultAuthorName": ""
+    },
+    "fileOptions": {
+        "scriptPrefix_UE": "",
+        "scriptSuffix_UE": "",
+        "scriptPrefix_CL": "",
+        "scriptSuffix_CL": "",
+        "scriptPrefix_MR": "",
+        "scriptSuffix_MR": "",
+        "scriptPrefix_WFA": "",
+        "scriptSuffix_WFA": "",
+        "scriptPrefix_SL": "",
+        "scriptSuffix_SL": ""
+    }
+}

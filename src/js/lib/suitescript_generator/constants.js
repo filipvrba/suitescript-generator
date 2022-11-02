@@ -1,0 +1,1 @@
+export const SUFFIXES = {txt: "txt", js: "js"}

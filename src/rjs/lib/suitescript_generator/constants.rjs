@@ -1,0 +1,4 @@
+export SUFFIXES = {
+  txt: "txt",
+  js: "js"
+}

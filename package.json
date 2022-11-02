@@ -1,0 +1,12 @@
+{
+  "name": "suitescript-generator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ssg": "node src/js/app/main.js $@"
+  },
+  "dependencies": {
+    "optparse": "^1.0.5"
+  }
+}

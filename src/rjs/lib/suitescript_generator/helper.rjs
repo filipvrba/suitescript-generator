@@ -1,0 +1,12 @@
+import "fs", from: "fs"
+import "path", from: "path"
+
+def mkdirs path_o
+  dir_name = path.dirname(path_o)
+  if fs.existsSync(dirname)
+    return true
+  end
+
+  mkdirs(dir_name)
+  fs.mkdirSync(dirname)
+end

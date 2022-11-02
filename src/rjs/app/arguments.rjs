@@ -1,0 +1,29 @@
+import optparse, from: "optparse"
+import [APP_NAME], from: "./constants.js"
+
+export options = {
+  name: nil,
+  script: nil,
+  type: nil,
+  desc: nil,
+}
+
+switches = [
+	['-h', '--help', 'Shows help.'],
+  ['-n', '--name AUTHOR', 'Set author name.'],
+  ['-s', '--script NAME', 'Set script name.'],
+  ['-t', '--type TYPE', 'Set script type.'],
+  ['-d', '--desc DESC', 'Set script description.'],
+]
+
+parser = optparse.OptionParser.new switches
+
+parser.banner = "Builds a scaffold specifically for a given sort of script.\nUsage: #{APP_NAME} [options]"
+parser.on('help', lambda do
+  console.log parser.toString()
+end)
+parser.on('*', lambda do |name, value|
+  options[name] = value
+end)
+
+parser.parse(process.argv);
