@@ -1,17 +1,51 @@
+import [CONFIG_IDS, CONFIG_UIDS], from: './constants.js'
+import "config", from: "config"
+
 export default class Config
+  attr_accessor :script_paths, :user_details, :file_options
+
   def initialize path = nil
     set_path_env(path)
-    @config = require("config")
+
+    @script_paths = { }
+    @user_details = { }
+    @file_options = { }
 
     set_values
   end
 
   def set_path_env path
-    unless path { return nil }
+    unless path
+      return nil
+    end
+
     process.env["NODE_CONFIG_DIR"] = path
   end
 
   def set_values
-    
+    for k in CONFIG_UIDS
+      options = {k: k, uid: CONFIG_UIDS[k]}
+      uniq_value_l = lambda { |obj| set_uniq_value(obj, options) }
+
+      case k
+      when "s"
+        uniq_value_l(@script_paths)
+      when "u"
+        uniq_value_l(@user_details)
+      when "f"
+        uniq_value_l(@file_options)
+      end
+    end
+  end
+
+  def set_uniq_value obj, options
+    uniq_a = CONFIG_IDS[options.k]
+    for k in uniq_a
+      obj[uniq_a[k]] = config.get("#{options.uid}.#{uniq_a[k]}")
+    end
+  end
+
+  def value id
+    @config.get(id)
   end
 end

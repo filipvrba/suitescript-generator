@@ -1,3 +1,6 @@
 import [VERSION], from: "./suitescript_generator/version.js"
 import "*", as: Helper, from: "./suitescript_generator/helper.js"
+import "Config", from: "./suitescript_generator/config.js"
 
+config = Config.new
+# console.log config.script_paths
